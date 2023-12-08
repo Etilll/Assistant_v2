@@ -55,6 +55,7 @@ class Record(PhoneCheck):
                 return
         
         raise ValueError
+
     def find_phone(self,phone):
         if self.p_find(phone):
             return self.p_find(phone)
@@ -64,7 +65,6 @@ class Record(PhoneCheck):
             self.phones.remove(self.p_find(phone))
         else:
             print(f"No number {phone} in {self.name.value} record!")
-
 
     def __str__(self):
         return f"Contact name: {self.name.value}, phones: {'; '.join(p.value for p in self.phones)}"
@@ -79,7 +79,6 @@ class AddressBook(UserDict):
             print(f"Record {record.name.value} with phone numbers {'; '.join(p.value for p in record.phones)} added!")
         else:
             print(f"This record already exists! Delete it first, then re-add.")
-
     
     def find(self,name:str):
         if name in self.data.keys():
@@ -87,7 +86,7 @@ class AddressBook(UserDict):
         else:
             print(f"Record {name} not found!")
             return None
-    
+
     def delete(self,name:str):
         if name in self.data.keys():
             del self.data[name]
